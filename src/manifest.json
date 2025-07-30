@@ -1,0 +1,42 @@
+{
+    "name": "Chesskit game importer",
+    "version": "0.0.1.0",
+    "description": "Analyze CC & Lichess games in chesskit.org",
+    "manifest_version": 3,
+    "author": "supertorpe",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "permissions": [
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://chesskit.org/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.chess.com/*"
+            ],
+            "js": [
+                "cc-code.js"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "https://lichess.org/*"
+            ],
+            "js": [
+                "lichess-code.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
