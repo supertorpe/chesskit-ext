@@ -58,7 +58,7 @@ function capturePgn(shareLinkSelector) {
 function handleFirstPageType() {
   const el = document.querySelector('div.game-review-buttons-component > a');
   const btn = createButton(async () => {
-    capturePgn('#board-layout-sidebar > div.sidebar-component > div.live-game-buttons-component > button.icon-font-chess.share.live-game-buttons-button');
+    capturePgn('button[aria-label="Share"]');
   });
   el.insertAdjacentElement('afterend', btn);
 }
